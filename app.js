@@ -20,7 +20,7 @@ var createNewTaskElement=function(taskString){
     var listItem=document.createElement("li");
 
     //input (checkbox)
-    var checkBox=document.createElement("input");//checkbox
+    var checkBox=document.createElement("input");//checkbx
     //label
     var label=document.createElement("label");//label
     //input (text)
@@ -42,16 +42,18 @@ var createNewTaskElement=function(taskString){
     checkBox.className="list__checkbox";
 
     editInput.type="text";
-    checkBox.className="list__checkbox";
+    editInput.className="task-input list__input";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
     editButton.className="button button_edit list_button edit";
 
     deleteButton.className="button button_delete list_button delete";
+
     deleteButtonImg.className='button__icon_delete';
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.alt='remove-icon';
     deleteButton.appendChild(deleteButtonImg);
+
 
     //and appending.
     listItem.appendChild(checkBox);
@@ -61,6 +63,8 @@ var createNewTaskElement=function(taskString){
     listItem.appendChild(deleteButton);
     return listItem;
 }
+
+
 
 var addTask=function(){
     console.log("Add Task...");
@@ -73,6 +77,7 @@ var addTask=function(){
     bindTaskEvents(listItem, taskCompleted);
 
     taskInput.value="";
+
 }
 
 //Edit an existing task.
@@ -80,6 +85,7 @@ var addTask=function(){
 var editTask=function(){
     console.log("Edit Task...");
     console.log("Change 'edit' to 'save'");
+
 
     var listItem=this.parentNode;
 
